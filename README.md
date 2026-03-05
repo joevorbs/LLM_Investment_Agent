@@ -1,4 +1,4 @@
-# LLM_Investment_Agent
+# LLM Investment Agent
 A tool to aggregate all personal investment account information and use an LLM query layer to answer questions on said investments. This is for fun to learn more about LLMs/GenAi and how to intergrate with them data pipelines.
 
 The goal is to pull data from each brokerage, aggregate it, store it, then apply an LLM over it to answer questions and get updates on my accounts.
