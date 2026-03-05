@@ -8,7 +8,11 @@ This pipeline will be AWS based and will leverage the Plaid API to pull the data
 The architecture will look something like this:
 - Secrets Manager to store API keys + any associated brokerage information
 - Lambda to make the API call and aggregate the data (would switch to glue for the processing if the data was that big but highly doubt it)
-- S3 or Dynamo to store the data (Don't get to use dynamno enough and would like some practice - fast for reads too)
+- Dynamo to store the data (Don't get to use dynamno enough and would like some practice - fast for reads too)
 - Lambda for the bedrock and query layer
 
 Front end / chat bot style interface will come later. Maybe will integrate dashboards with Quicksight but that will be phase 2.
+
+For the access keys to Plaid (currently sandbox - still stored in secrets manager):
+  1. Made a post request at: https://sandbox.plaid.com/sandbox/public_token/create
+  2. Took the body of the request and passed in at: https://sandbox.plaid.com/item/public_token/exchange
