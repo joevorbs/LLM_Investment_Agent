@@ -27,12 +27,14 @@ secret = api_creds.get("secret")
 
 def lambda_handler(event, context):
     
+    #Make request to Plaid API with stored credentials
     payload = json.dumps({
         "client_id": client_id,
         "secret": secret,
         "access_token": access_key
     }).encode("utf-8")
 
+    #Make the call - if we receive an error code raise an exception and throw the message
     try:
         req = urllib.request.Request(
             url,
