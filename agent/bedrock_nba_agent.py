@@ -17,8 +17,6 @@ def lambda_handler(event, context):
 
     The database records are {json.dumps(items, default = str)}
 
-
-
     Rules:
     - When returning a player's name, remove the _ character, replace it with a space, and title case their name
     - Return ONLY the final answer WITH the associated statistics
