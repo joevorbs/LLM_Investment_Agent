@@ -17,12 +17,16 @@ def lambda_handler(event, context):
 
     The database records are {json.dumps(items, default = str)}
 
+
+
     Rules:
-    - Return the information succinctly
-    - Return ONLY the final answer
+    - When returning a player's name, remove the _ character, replace it with a space, and title case their name
+    - Return ONLY the final answer WITH the associated statistics
     - Don't show reasoning
     - Don't explain the steps
-    - Don't explain how to query the database to get the answer
+    - Do not use LaTeX formatting
+    - Do not wrap numbers in $ symbols
+    - Use plain text only
     - If a question is asked about a player that does not exist please return the message "This player is not in the database. The available players are: " then list all players in the database.
     - Answer concisely and directly
 
@@ -44,7 +48,9 @@ def lambda_handler(event, context):
             ],
             "inferenceConfig": {
                 "maxTokens": 150,
-                "temperature": 0
+                "temperature": 0,
+                "topP": 0,
+                "topK": 1
             }
         })
     )
