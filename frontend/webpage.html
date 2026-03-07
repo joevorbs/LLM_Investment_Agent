@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+</head>
+
+<body>
+
+<input id="question" placeholder="Ask a question about NBA Players' Stats!" style="width:400px;">
+<button onclick="ask()">Ask</button>
+
+<div id="chart" style="width:800px;height:500px;"></div>
+
+<script>
+window.ask = async function() {
+
+  const question = document.getElementById("question").value
+
+  const res = await fetch("https://pzqubcmk2iaqp4tzgjxubopxca0pjiim.lambda-url.us-east-1.on.aws", {
+    method: "POST",
+    headers: {"Content-Type":"application/json"},
+    body: JSON.stringify({question})
+  })
+
+  const text = await res.text()
+
+  let data
+  try {
+    data = JSON.parse(text)
+  } catch {
+    document.getElementById("chart").innerHTML = text
+    return
+  }
+
+  if (data.traces) {
+    Plotly.newPlot("chart", data.traces, data.layout || {})
+  } else {
+    document.getElementById("chart").innerHTML = data.answer || text
+  }
+
+}
+</script>
+
+</body>
+</html>
