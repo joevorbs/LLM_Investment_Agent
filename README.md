@@ -8,6 +8,7 @@ This will all be done on AWS. The data is sourced from Basketball Reference.
 - DynamoDB for storage
 - Bedrock & Lambda for query layer
 - S3 (For hosting static webpage)
+- API Gateway to pass questions to webpage
 - HTML / Python (Plotly) for charting and webpage
 - Terraform for IAC and deployment
 
