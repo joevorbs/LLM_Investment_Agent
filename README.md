@@ -6,9 +6,10 @@ This will all be done on AWS. The data is sourced from Basketball Reference.
 # Architecture (AWS)
 - Glue for ETL
 - DynamoDB for storage
-- Bedrock / Lambda for query layer
-- Quicksight for visualization
-- Terraform for IAC and deployment (why not)
+- Bedrock & Lambda for query layer
+- S3 (For hosting static webpage)
+- HTML / Python (Plotly) for charting and webpage
+- Terraform for IAC and deployment
 
 # Phase 1
 ## ETL & Query Layer
@@ -19,7 +20,10 @@ This will all be done on AWS. The data is sourced from Basketball Reference.
 # Phase 2
 - Allow the agent to pull the data for us without specifying what we want upfront
 - Create basic front end
-- Connect AWS Quicksight to the database and use the agent to create dashboards based on the question asked
+- Ask the questions / get responses on the webpage and generate charts based on the question
+
+- # Phase 3
+- IAC
 
 # Sample (Current State)
 
