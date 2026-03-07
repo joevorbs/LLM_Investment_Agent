@@ -17,5 +17,6 @@ This will all be done on AWS. The data is sourced from Basketball Reference.
 - Apply LLM query layer over the database
 
 # Phase 2
+- Allow the agent to pull the data for us without specifying what we want upfront
 - Create basic front end
 - Connect AWS Quicksight to the database and use the agent to create dashboards based on the question asked
